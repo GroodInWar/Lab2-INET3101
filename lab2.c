@@ -96,6 +96,13 @@ int main() {
     add_record(temp4);
     add_record(temp5);
 
+    // FREEING TEMPS
+    free(temp1);
+    free(temp2);
+    free(temp3);
+    free(temp4);
+    free(temp5);
+
 
     while(true) {
         printf("\n============MENU============\n1. Print all records\n2. Print number of records\n3. Print size of database\n4. Add record\n5. Delete record\n6. Print number of accesses\n   to database\n7. Exit\n\n>");
@@ -145,8 +152,11 @@ int main() {
                 strncpy(temp->className, clsname, strlen(clsname));
                 strncpy(temp->classID, clsid, strlen(clsid));
                 temp->studentID = stdid;
-
-                add_record(temp);
+                if(add_record(temp) == 1) 
+                    printf("\nERROR: Null Pointer temp\n");
+                else 
+                    printf("\nRecord successfully added!\n");
+                    free(temp);
                 break;
             case 5:
                 // Delete record
