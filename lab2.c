@@ -87,7 +87,7 @@ int main() {
                 char clsname[100];
                 char clsid[9];
 
-                printf("Type the student's name: \n");
+                printf("Type the student's name <First_Last>: \n");
                 scanf("%s", stdname);
                 
                 printf("Type the student's ID: \n");
@@ -205,7 +205,6 @@ int add_record(struct record *stdrecord) {
         free(stdrecord);
         num_records++;
         num_of_accesses++;
-        free(DataBase);
         DataBase = newDB;
         return 0;
     }
