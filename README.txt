@@ -16,43 +16,60 @@ Menu Definition and Usage:
         7 - Exits the program
 
 Functions:
-    1. add()
+    1. print_all_records()
         Input Type(s) (if any):
-            int num1 
-            int num2
-        Output Type:
-            int
-        Algorithm Description:
-            Takes in two integers, num1 and num2, and returns the sum of the num1 and num2 as int data type. It has a complexity 
-            of O(1).
-
-    2. multiply()
-        Input Type(s) (if any):
-            float num1
-            float num2
-        Output Type:
-            float
-        Algorithm Description:
-            Takes in two floats, num1 and num2, and returns the product of num1 and num2 as float data type. It has a complexity 
-            of O(1).
-
-    3. reverse()
-        Input Type(s) (if any):
-            char *str
+            void
         Output Type:
             void
         Algorithm Description:
-            Takes in a character pointer, str, and defines a chararacter pointer, ptr, at the last char in the memory sequence 
-            of str. Then, iteratively decrements ptr, until it reaches the first char in that str points to. It has a 
-            complexity of O(n).
+            The algorithm iterates though the database by using pointer arithmatics, and prints the contents of each structure the pointer is pointing at. The 
+        algorithm has a complexity of O(n).
 
-    4. compare()
+    2. print_num_records()
         Input Type(s) (if any):
-            char *str1
-            char *str2
+            void
+        Output Type:
+            void
+        Algorithm Description:
+            The algorithm prints the value contained in the global variable num_records. The algorithm has a complexity of O(1).
+
+    3. print_size_database()
+        Input Type(s) (if any):
+            void
+        Output Type:
+            void
+        Algorithm Description:
+            The algorithm iterates through the database by using pointer arithmatics, and adds the size of each attribute in the record (in case of pointers,
+        the algorithm adds the size of the pointer plus the ammount of memory allocated for each of them). After the loop reaches its end, the algorithm 
+        prints the size of the database in bytes. The Algorithm has a complexity of O(n).
+
+    4. add_record()
+        Input Type(s) (if any):
+            struct record *stdrecord
+        Output Type:
+            int
+        Algorithm Description: 
+            The algorithm takes in a pointer to a struct record. If stdrecord pointer is null, the algorithm returns 1. If num_records is equal to 0, the 
+        algorithm initiates a database, moves stdrecord to the space allocated for database (also icrements num_records and num_of_accesses), and returns 0. 
+        If num_records is equal to 1, the algorithm initiates a new database with enough space for 2 struct records, moves the struct in the old database to 
+        the new database, moves the stdrecord to the second space that was allocated for the database (also increments num_records and num_of_accesses), and
+        returns 0. Otherwise, the algorithm allocates space for num_records+1 struct records, iterates through the old database and move its struct records 
+        from it to the new database, moves stdrecord to the final space allocated (also increments num_records and num_of_accesses), and reutrns 0. The 
+        algorithm has a complexity of O(n) in the worst case.
+
+    5. delete_record()
+        Input Type(s) (if any):
+            void
         Output Type:
             int
         Algorithm Description:
-            Takes in two character pointers, str1 and str2, and iterates through both of them, while both of them are
-            different than the '\0' character and they have they have the same character value. Finally, if they are 
-            still the same after the iteration, then the function return 0, and 1 otherwise.
+            The algorithm uses a pointer to point to the last struct record in the database if num_records is greater than 0, frees its attributes, 
+        decrements num_records and num_of_accesses, and returns 0. Otherwise, returns -1. The algorithm has a complexity of O(1).
+
+    6.print_number_of_accesses()
+        Input Type(s) (if any):
+            void
+        Output Type:
+            void
+        Algorithm Description:
+            The algorithm prints the value stored in num_of_accesses. The algorithm has a complexity of O(1).

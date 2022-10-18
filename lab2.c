@@ -204,7 +204,17 @@ void print_num_records() {
 }
 
 void print_size_database() {
-    printf("The database has size of %ld bytes\n", num_records * sizeof(struct record));
+    int size = 0;
+    printf("%ld\n", sizeof(struct record)); 
+    struct record *DBmover = DataBase;
+    for(int i = 0; i < num_records; i++) {
+        size += sizeof(struct record);
+        size += sizeof(char)*strlen(DBmover->studentFullName);
+        size += sizeof(char)*strlen(DBmover->classID);
+        size += sizeof(char)*strlen(DBmover->className);
+        DBmover++;
+    }
+    printf("The database has size of %d bytes\n", size);
 }
 
 void print_number_of_accesses() {
