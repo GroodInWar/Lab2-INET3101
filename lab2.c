@@ -8,7 +8,7 @@
 
 int main() {
     // First Temp
-    char temp1name[] = "GustavoSakamotodeToledo\0"; 
+    char temp1name[] = "Gustavo_Sakamoto_de_Toledo\0"; 
     char temp1clsname[] = "C_Programming_and_Applications\0";
     char temp1clsid[] = "INET3101\0";
     int temp1id = 5717290;
@@ -25,7 +25,7 @@ int main() {
 
 
     // Second Temp
-    char temp2name[] = "GustavoSakamotodeToledo\0"; 
+    char temp2name[] = "Gustavo_Sakamoto_de_Toledo\0"; 
     char temp2clsname[] = "Multivariable_Calculus\0";
     char temp2clsid[] = "MATH2263\0";
     int temp2id = 5717290;
@@ -42,7 +42,7 @@ int main() {
 
 
     // Third Temp
-    char temp3name[] = "GustavoSakamotodeToledo\0"; 
+    char temp3name[] = "Gustavo_Sakamoto_de_Toledo\0"; 
     char temp3clsname[] = "Applied_Linear_Algebra\0";
     char temp3clsid[] = "MATH4242\0";
     int temp3id = 5717290;
@@ -67,6 +67,7 @@ int main() {
         int action;
         scanf("%d", &action);
         getchar();
+        printf("\n");
         switch (action) {
             case 1:
                 // Print all records code
@@ -114,8 +115,10 @@ int main() {
                 break;
             case 5:
                 // Delete record
-                delete_record();
-                printf("Last record in the database was deleted\n");
+                if(delete_record() == 0)
+                    printf("Last record in the database was deleted\n");
+                else    
+                    printf("ERROR: Empty database\n");
                 break;
             case 6:
                 // Print number of accesses to database
@@ -128,7 +131,7 @@ int main() {
                 exit(1);
             default:
                 //invalid commands
-                printf("\nError: Invalid Command\n");
+                printf("\nERROR: Invalid Command\n");
                 break;
         }
     }
@@ -136,9 +139,9 @@ int main() {
 }
 
 
-void print_all_records() {
+void print_all_records() {   // TODO: FIX this 
     if(num_records == 0) {
-        printf("Error: The database is empty\n");
+        printf("ERROR: Empty database\n");
     }
     else {
         struct record *mover = DataBase;
@@ -160,7 +163,7 @@ void print_size_database() {
 }
 
 void print_number_of_accesses() {
-    printf("The database was accessed a total of %d time(s)\n", num_of_accesses);
+    printf("Number of accesses: %d time(s)\n", num_of_accesses);
 }
 
 int add_record(struct record *stdrecord) {
@@ -169,8 +172,7 @@ int add_record(struct record *stdrecord) {
     }
     if(num_records == 0) {
         DataBase = malloc(sizeof(struct record));
-        memcpy(DataBase, stdrecord, sizeof(struct record));
-        free(stdrecord);
+        memmove(DataBase, stdrecord, sizeof(struct record));
         num_records++;
         num_of_accesses++;
         return 0;
@@ -179,12 +181,11 @@ int add_record(struct record *stdrecord) {
         struct record *newDB = malloc((num_records+1)*sizeof(struct record));
         struct record *DBhead = DataBase;
         struct record *newDBmover = newDB;
-        memcpy(newDBmover++, DBhead, sizeof(struct record));
-        memcpy(newDBmover, stdrecord, sizeof(struct record));
+        memmove(newDBmover, DBhead, sizeof(struct record));
+        newDBmover++;
+        memmove(newDBmover, stdrecord, sizeof(struct record));
         num_records++;
         num_of_accesses++;
-        free(stdrecord);
-        free(DBhead);
         DataBase = newDB;
         return 0;
     }
@@ -195,14 +196,12 @@ int add_record(struct record *stdrecord) {
         DBmover++;
         struct record *newDBmover = newDB;
         for(int i = 0; i < num_records; i++) {
-            memcpy(newDBmover, DBtail, sizeof(struct record));
-            free(DBtail);
+            memmove(newDBmover, DBtail, sizeof(struct record));
             DBtail = DBmover;
             DBmover++;
             newDBmover++;
         }
-        memcpy(newDBmover, stdrecord, sizeof(struct record));
-        free(stdrecord);
+        memmove(newDBmover, stdrecord, sizeof(struct record));
         num_records++;
         num_of_accesses++;
         DataBase = newDB;
@@ -210,14 +209,18 @@ int add_record(struct record *stdrecord) {
     }
 }
 
-int delete_record() {
-    struct record *DBmover = DataBase;
-    DBmover+(num_records-1);
-    free(DBmover->classID);
-    free(DBmover->className);
-    free(DBmover->studentFullName);
-    free(DBmover);
-    num_records--;
-    num_of_accesses++;
-    return 0;
+int delete_record() {  // TODO: Something wrong here too
+    if(num_records > 0) {
+        struct record *DBmover = DataBase;
+        DBmover = DBmover+(num_records-1);
+        free(DBmover->className);
+        free(DBmover->studentFullName);
+        free(DBmover->classID);
+        num_records--;
+        num_of_accesses++;
+        return 0;
+    }
+    else {
+        return 1;
+    }
 }
