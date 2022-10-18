@@ -56,11 +56,46 @@ int main() {
     strncpy(temp3->className, temp3clsname, strlen(temp3clsname));
     strncpy(temp3->classID, temp3clsid, strlen(temp3clsid));
     temp3->studentID = temp3id;
+
+    // Fourth Temp
+    char temp4name[] = "Gustavo_Sakamoto_de_Toledo\0"; 
+    char temp4clsname[] = "Nature_in_the_City\0";
+    char temp4clsid[] = "CI1512\0";
+    int temp4id = 5717290;
+    struct record *temp4 = malloc(sizeof(struct record));
+
+    temp4->studentFullName = malloc(sizeof(char)*strlen(temp4name));
+    temp4->className = malloc(sizeof(char)*strlen(temp4clsname));
+    temp4->classID = malloc(sizeof(char)*strlen(temp4clsid));
+
+    strncpy(temp4->studentFullName, temp4name, strlen(temp4name));
+    strncpy(temp4->className, temp4clsname, strlen(temp4clsname));
+    strncpy(temp4->classID, temp4clsid, strlen(temp4clsid));
+    temp4->studentID = temp4id;
+
+    // Fifth Temp
+    char temp5name[] = "Gustavo_Sakamoto_de_Toledo\0"; 
+    char temp5clsname[] = "Machine_Architecture\0";
+    char temp5clsid[] = "CSCI2021\0";
+    int temp5id = 5717290;
+    struct record *temp5 = malloc(sizeof(struct record));
+
+    temp5->studentFullName = malloc(sizeof(char)*strlen(temp5name));
+    temp5->className = malloc(sizeof(char)*strlen(temp5clsname));
+    temp5->classID = malloc(sizeof(char)*strlen(temp5clsid));
+
+    strncpy(temp5->studentFullName, temp5name, strlen(temp5name));
+    strncpy(temp5->className, temp5clsname, strlen(temp5clsname));
+    strncpy(temp5->classID, temp5clsid, strlen(temp5clsid));
+    temp5->studentID = temp5id;
     
     // ADDING TEMPS TO DB
     add_record(temp1);
     add_record(temp2);
     add_record(temp3);
+    add_record(temp4);
+    add_record(temp5);
+
 
     while(true) {
         printf("\n============MENU============\n1. Print all records\n2. Print number of records\n3. Print size of database\n4. Add record\n5. Delete record\n6. Print number of accesses\n   to database\n7. Exit\n\n>");
@@ -88,13 +123,13 @@ int main() {
                 char clsname[100];
                 char clsid[9];
 
-                printf("Type the student's name <First_Last>: \n");
+                printf("Type the student's name\n<First_Last>: \n");
                 scanf("%s", stdname);
                 
                 printf("Type the student's ID: \n");
                 scanf("%d", &stdid);
                 
-                printf("Type the student's class name: \n");
+                printf("Type the student's class name\n<use_underline>: \n");
                 scanf("%s", clsname);
                 
                 printf("Type the student's class ID: \n");
@@ -139,7 +174,7 @@ int main() {
 }
 
 
-void print_all_records() {   // TODO: FIX this 
+void print_all_records() {   
     if(num_records == 0) {
         printf("ERROR: Empty database\n");
     }
@@ -209,7 +244,7 @@ int add_record(struct record *stdrecord) {
     }
 }
 
-int delete_record() {  // TODO: Something wrong here too
+int delete_record() {  
     if(num_records > 0) {
         struct record *DBmover = DataBase;
         DBmover = DBmover+(num_records-1);
