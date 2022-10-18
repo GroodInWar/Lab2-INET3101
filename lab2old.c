@@ -8,7 +8,7 @@
 
 int main() {
     // First Temp
-    char temp1name[] = "Gustavo_Sakamoto_de_Toledo\0"; 
+    char temp1name[] = "GustavoSakamotodeToledo\0"; 
     char temp1clsname[] = "C_Programming_and_Applications\0";
     char temp1clsid[] = "INET3101\0";
     int temp1id = 5717290;
@@ -25,7 +25,7 @@ int main() {
 
 
     // Second Temp
-    char temp2name[] = "Gustavo_Sakamoto_de_Toledo\0"; 
+    char temp2name[] = "GustavoSakamotodeToledo\0"; 
     char temp2clsname[] = "Multivariable_Calculus\0";
     char temp2clsid[] = "MATH2263\0";
     int temp2id = 5717290;
@@ -42,7 +42,7 @@ int main() {
 
 
     // Third Temp
-    char temp3name[] = "Gustavo_Sakamoto_de_Toledo\0"; 
+    char temp3name[] = "GustavoSakamotodeToledo\0"; 
     char temp3clsname[] = "Applied_Linear_Algebra\0";
     char temp3clsid[] = "MATH4242\0";
     int temp3id = 5717290;
@@ -56,60 +56,17 @@ int main() {
     strncpy(temp3->className, temp3clsname, strlen(temp3clsname));
     strncpy(temp3->classID, temp3clsid, strlen(temp3clsid));
     temp3->studentID = temp3id;
-
-    // Fourth Temp
-    char temp4name[] = "Gustavo_Sakamoto_de_Toledo\0"; 
-    char temp4clsname[] = "Nature_in_the_City\0";
-    char temp4clsid[] = "CI1512\0";
-    int temp4id = 5717290;
-    struct record *temp4 = malloc(sizeof(struct record));
-
-    temp4->studentFullName = malloc(sizeof(char)*strlen(temp4name));
-    temp4->className = malloc(sizeof(char)*strlen(temp4clsname));
-    temp4->classID = malloc(sizeof(char)*strlen(temp4clsid));
-
-    strncpy(temp4->studentFullName, temp4name, strlen(temp4name));
-    strncpy(temp4->className, temp4clsname, strlen(temp4clsname));
-    strncpy(temp4->classID, temp4clsid, strlen(temp4clsid));
-    temp4->studentID = temp4id;
-
-    // Fifth Temp
-    char temp5name[] = "Gustavo_Sakamoto_de_Toledo\0"; 
-    char temp5clsname[] = "Machine_Architecture\0";
-    char temp5clsid[] = "CSCI2021\0";
-    int temp5id = 5717290;
-    struct record *temp5 = malloc(sizeof(struct record));
-
-    temp5->studentFullName = malloc(sizeof(char)*strlen(temp5name));
-    temp5->className = malloc(sizeof(char)*strlen(temp5clsname));
-    temp5->classID = malloc(sizeof(char)*strlen(temp5clsid));
-
-    strncpy(temp5->studentFullName, temp5name, strlen(temp5name));
-    strncpy(temp5->className, temp5clsname, strlen(temp5clsname));
-    strncpy(temp5->classID, temp5clsid, strlen(temp5clsid));
-    temp5->studentID = temp5id;
     
     // ADDING TEMPS TO DB
     add_record(temp1);
     add_record(temp2);
     add_record(temp3);
-    add_record(temp4);
-    add_record(temp5);
-
-    // FREEING TEMPS
-    free(temp1);
-    free(temp2);
-    free(temp3);
-    free(temp4);
-    free(temp5);
-
 
     while(true) {
         printf("\n============MENU============\n1. Print all records\n2. Print number of records\n3. Print size of database\n4. Add record\n5. Delete record\n6. Print number of accesses\n   to database\n7. Exit\n\n>");
         int action;
         scanf("%d", &action);
         getchar();
-        printf("\n");
         switch (action) {
             case 1:
                 // Print all records code
@@ -130,13 +87,13 @@ int main() {
                 char clsname[100];
                 char clsid[9];
 
-                printf("Type the student's name\n<First_Last>: \n");
+                printf("Type the student's name: \n");
                 scanf("%s", stdname);
                 
                 printf("Type the student's ID: \n");
                 scanf("%d", &stdid);
                 
-                printf("Type the student's class name\n<use_underline>: \n");
+                printf("Type the student's class name: \n");
                 scanf("%s", clsname);
                 
                 printf("Type the student's class ID: \n");
@@ -152,18 +109,13 @@ int main() {
                 strncpy(temp->className, clsname, strlen(clsname));
                 strncpy(temp->classID, clsid, strlen(clsid));
                 temp->studentID = stdid;
-                if(add_record(temp) == 1) 
-                    printf("\nERROR: Null Pointer temp\n");
-                else 
-                    printf("\nRecord successfully added!\n");
-                    free(temp);
+
+                add_record(temp);
                 break;
             case 5:
                 // Delete record
-                if(delete_record() == 0)
-                    printf("Last record in the database was deleted\n");
-                else    
-                    printf("ERROR: Empty database\n");
+                delete_record();
+                printf("Last record in the database was deleted\n");
                 break;
             case 6:
                 // Print number of accesses to database
@@ -176,7 +128,7 @@ int main() {
                 exit(1);
             default:
                 //invalid commands
-                printf("\nERROR: Invalid Command\n");
+                printf("\nError: Invalid Command\n");
                 break;
         }
     }
@@ -184,9 +136,9 @@ int main() {
 }
 
 
-void print_all_records() {   
+void print_all_records() {
     if(num_records == 0) {
-        printf("ERROR: Empty database\n");
+        printf("Error: The database is empty\n");
     }
     else {
         struct record *mover = DataBase;
@@ -204,20 +156,11 @@ void print_num_records() {
 }
 
 void print_size_database() {
-    int size = 0;
-    struct record *DBmover = DataBase;
-    for(int i = 0; i < num_records; i++) {
-        size += sizeof(struct record);
-        size += sizeof(char)*strlen(DBmover->studentFullName);
-        size += sizeof(char)*strlen(DBmover->classID);
-        size += sizeof(char)*strlen(DBmover->className);
-        DBmover++;
-    }
-    printf("The database has size of %d bytes\n", size);
+    printf("The database has size of %ld bytes\n", num_records * sizeof(struct record));
 }
 
 void print_number_of_accesses() {
-    printf("Number of accesses: %d time(s)\n", num_of_accesses);
+    printf("The database was accessed a total of %d time(s)\n", num_of_accesses);
 }
 
 int add_record(struct record *stdrecord) {
@@ -226,7 +169,8 @@ int add_record(struct record *stdrecord) {
     }
     if(num_records == 0) {
         DataBase = malloc(sizeof(struct record));
-        memmove(DataBase, stdrecord, sizeof(struct record));
+        memcpy(DataBase, stdrecord, sizeof(struct record));
+        free(stdrecord);
         num_records++;
         num_of_accesses++;
         return 0;
@@ -235,11 +179,12 @@ int add_record(struct record *stdrecord) {
         struct record *newDB = malloc((num_records+1)*sizeof(struct record));
         struct record *DBhead = DataBase;
         struct record *newDBmover = newDB;
-        memmove(newDBmover, DBhead, sizeof(struct record));
-        newDBmover++;
-        memmove(newDBmover, stdrecord, sizeof(struct record));
+        memcpy(newDBmover++, DBhead, sizeof(struct record));
+        memcpy(newDBmover, stdrecord, sizeof(struct record));
         num_records++;
         num_of_accesses++;
+        free(stdrecord);
+        free(DBhead);
         DataBase = newDB;
         return 0;
     }
@@ -250,31 +195,30 @@ int add_record(struct record *stdrecord) {
         DBmover++;
         struct record *newDBmover = newDB;
         for(int i = 0; i < num_records; i++) {
-            memmove(newDBmover, DBtail, sizeof(struct record));
+            memcpy(newDBmover, DBtail, sizeof(struct record));
+            free(DBtail);
             DBtail = DBmover;
             DBmover++;
             newDBmover++;
         }
-        memmove(newDBmover, stdrecord, sizeof(struct record));
+        memcpy(newDBmover, stdrecord, sizeof(struct record));
+        free(stdrecord);
         num_records++;
         num_of_accesses++;
+        free(DataBase);
         DataBase = newDB;
         return 0;
     }
 }
 
-int delete_record() {  
-    if(num_records > 0) {
-        struct record *DBmover = DataBase;
-        DBmover = DBmover+(num_records-1);
-        free(DBmover->className);
-        free(DBmover->studentFullName);
-        free(DBmover->classID);
-        num_records--;
-        num_of_accesses++;
-        return 0;
-    }
-    else {
-        return 1;
-    }
+int delete_record() {
+    struct record *DBmover = DataBase;
+    DBmover+(num_records-1);
+    free(DBmover->classID);
+    free(DBmover->className);
+    free(DBmover->studentFullName);
+    free(DBmover);
+    num_records--;
+    num_of_accesses++;
+    return 0;
 }

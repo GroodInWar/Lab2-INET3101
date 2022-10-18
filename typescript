@@ -1,0 +1,422 @@
+Script started on 2022-10-18 17:16:03-05:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="105" LINES="51"]
+[?2004h]0;groodinwar@Gustavo-Gaming-Laptop: ~/Desktop/inet3101/labs/lab2[01;32mgroodinwar@Gustavo-Gaming-Laptop[00m:[01;34m~/Desktop/inet3101/labs/lab2[00m$ gcc ./[K[Klab2.c - [Ko .[Klab2
+[?2004l[?2004h]0;groodinwar@Gustavo-Gaming-Laptop: ~/Desktop/inet3101/labs/lab2[01;32mgroodinwar@Gustavo-Gaming-Laptop[00m:[01;34m~/Desktop/inet3101/labs/lab2[00m$ ./lab2
+[?2004l
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>1
+
+-----Student database-----
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+C_Programming_and_Applications :
+INET3101
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+Multivariable_Calculus :
+MATH2263
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+Applied_Linear_Algebra :
+MATH4242
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+Nature_in_the_City :
+CI1512
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+Machine_Architecture :
+CSCI2021
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>2
+
+The number of records in the database is 5
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>3
+
+The database has size of 440 bytes
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>4
+
+Type the student's name
+<First_Last>: 
+5 James_Howard
+Type the student's ID: 
+219421
+Type the student's class name
+<use_underline>: 
+Intro_to_Phto  otography
+Type the student's class ID: 
+PHOT3120 1
+
+Record successfully added!
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>5
+
+Last record in the database was deleted
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>1
+
+-----Student database-----
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+C_Programming_and_Applications :
+INET3101
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+Multivariable_Calculus :
+MATH2263
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+Applied_Linear_Algebra :
+MATH4242
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+Nature_in_the_City :
+CI1512
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+Machine_Architecture :
+CSCI2021
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>5
+
+Last record in the database was deleted
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>1
+
+-----Student database-----
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+C_Programming_and_Applications :
+INET3101
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+Multivariable_Calculus :
+MATH2263
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+Applied_Linear_Algebra :
+MATH4242
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+Nature_in_the_City :
+CI1512
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>5
+
+Last record in the database was deleted
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>1
+
+-----Student database-----
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+C_Programming_and_Applications :
+INET3101
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+Multivariable_Calculus :
+MATH2263
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+Applied_Linear_Algebra :
+MATH4242
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>5
+
+Last record in the database was deleted
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>1
+
+-----Student database-----
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+C_Programming_and_Applications :
+INET3101
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+Multivariable_Calculus :
+MATH2263
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>5
+
+Last record in the database was deleted
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>1
+
+-----Student database-----
+--------------------------
+Gustavo_Sakamoto_de_Toledo : 5717290
+C_Programming_and_Applications :
+INET3101
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>5
+
+Last record in the database was deleted
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>1
+
+ERROR: Empty database
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>5
+
+ERROR: Empty database
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>2
+
+The number of records in the database is 0
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>3
+
+The database has size of 0 bytes
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>6
+
+Number of accesses: 12 time(s)
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>7
+
+User exited the program
+[?2004h]0;groodinwar@Gustavo-Gaming-Laptop: ~/Desktop/inet3101/labs/lab2[01;32mgroodinwar@Gustavo-Gaming-Laptop[00m:[01;34m~/Desktop/inet3101/labs/lab2[00m$ ./lab2
+[?2004l
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>172
+
+
+ERROR: Invalid Command
+
+============MENU============
+1. Print all records
+2. Print number of records
+3. Print size of database
+4. Add record
+5. Delete record
+6. Print number of accesses
+   to database
+7. Exit
+
+>7
+
+User exited the program
+[?2004h]0;groodinwar@Gustavo-Gaming-Laptop: ~/Desktop/inet3101/labs/lab2[01;32mgroodinwar@Gustavo-Gaming-Laptop[00m:[01;34m~/Desktop/inet3101/labs/lab2[00m$ exit
+[?2004lexit
+
+Script done on 2022-10-18 17:18:03-05:00 [COMMAND_EXIT_CODE="1"]
